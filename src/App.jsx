@@ -1,18 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Admin from "./pages/admin"
+import Admin from "./pages/admin";
 import Adminpage from "./pages/adminpage"
+import TIME from "./pages/time"
 
-import HomePage from "./pages/homepage"
 
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/adminpage" element={<Adminpage />} />
+       
+        <Route path="/" element={<Admin />} />
+       <Route path="/adminpage" element={<Adminpage />} />
+       <Route path="/time" element={<TIME />} />
+
       </Routes>
     </Router>
   );
