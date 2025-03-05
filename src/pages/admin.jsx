@@ -3,6 +3,7 @@ import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../helper/firebaseConfig";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import "./css/login.css"; // New CSS file for login-specific styles
 
 const Login = () => {
   const [error, setError] = useState(null);
@@ -37,23 +38,17 @@ const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "auto", padding: "2rem" }}>
-      <h2>Login</h2>
-      <button
-        onClick={handleGoogleLogin}
-        style={{
-          padding: "0.75rem",
-          width: "100%",
-          marginTop: "1rem",
-          backgroundColor: "#4285F4",
-          color: "#fff",
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        Sign in with Google
-      </button>
-      {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-heading">Admin Login</h2>
+        <p className="login-subtitle">
+          Please sign in with your Google account to access the admin panel.
+        </p>
+        <button className="google-button" onClick={handleGoogleLogin}>
+          Sign in with Google
+        </button>
+        {error && <p className="error-message">{error}</p>}
+      </div>
     </div>
   );
 };
